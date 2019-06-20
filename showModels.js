@@ -1,3 +1,21 @@
+// Global Tag List Variables
+var apparelTags = [], celebrityTags = [], colorTags = [], demographicsTags = [], foodTags = [], generalTags = [], logoTags = [], moderationTags = [], nsfwTags = [], travelTags = [], weddingTags = [];
+  
+// Model ID Dictionary
+var modelIDs = {
+	"apparel": "e0be3b9d6a454f0493ac3a30784001ff",
+	"celebrity": "e466caa0619f444ab97497640cefc4dc",
+	"color": "eeed0b6733a644cea07cf4c60f87ebb7",
+	"demographics": "c0c0ac362b03416da06ab3fa36fb58e3",
+	"food": "bd367be194cf45149e75f01d59f77ba7",
+	"general": "aaa03c23b3724a16a56b629203edc62c",
+	"logo": "c443119bf2ed4da98487520d01a0b1e3",
+	"moderation": "d16f390eb32cad478c7ae150069bd2c6",
+	"nsfw": "e9576d86d2004ed1a38ba0cf39ecb4b1",
+	"travel": "eee28c313d69466f836ab83287a54ed9",
+	"wedding": "c386b7a870114f4a87477c0824499348"
+}
+
 /*
   Purpose: Fill in results table with appropriate models
   Args:
@@ -23,7 +41,7 @@ function doAnalysis(tag) {
 		textDiv.innerHTML = "\"" + capitalize(trimmedTag) + "\" appears in the following:<br/><br/>";
 		var mainRow = resultsTable.insertRow(-1);
 		
-		// Loop through models
+		// Loop through models and display them
 		for(var i=0; i < modelResults.length; i++) {
 			var newCell = mainRow.insertCell(i);
 			newCell.innerHTML = "<a href='https://clarifai.com/models/" + modelResults[i] + "-image-recognition-model/" + modelIDs[modelResults[i]] + "' target='_blank'><img src='Model%20Images/" + modelResults[i] + ".jpg'\></a>";
@@ -184,20 +202,4 @@ function getInitialTags(model) {
 	}
 	
 	return arrayItems;
-}
-
-// Model ID Dictionary
-
-var modelIDs = {
-	"apparel": "e0be3b9d6a454f0493ac3a30784001ff",
-	"celebrity": "e466caa0619f444ab97497640cefc4dc",
-	"color": "eeed0b6733a644cea07cf4c60f87ebb7",
-	"demographics": "c0c0ac362b03416da06ab3fa36fb58e3",
-	"food": "bd367be194cf45149e75f01d59f77ba7",
-	"general": "aaa03c23b3724a16a56b629203edc62c",
-	"logo": "c443119bf2ed4da98487520d01a0b1e3",
-	"moderation": "d16f390eb32cad478c7ae150069bd2c6",
-	"nsfw": "e9576d86d2004ed1a38ba0cf39ecb4b1",
-	"travel": "eee28c313d69466f836ab83287a54ed9",
-	"wedding": "c386b7a870114f4a87477c0824499348"
 }
